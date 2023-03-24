@@ -28,19 +28,7 @@ class _AdminState extends State<Admin> {
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           toolbarHeight: 80.0,
-          iconTheme: IconThemeData(color: Colors.black)
-          // actions: [
-          //   IconButton(
-          //     onPressed: () {
-          //       logout(context);
-          //     },
-          //     icon: Icon(
-          //       Icons.logout,
-          //       color: Colors.black,
-          //     ),
-          //   )
-          // ],
-          ),
+          iconTheme: IconThemeData(color: Colors.black)),
       drawer: Drawer(
         child: SingleChildScrollView(
           child: Column(
