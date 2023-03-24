@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:rolebased/admin/admin.dart';
+import 'package:rolebased/admin/tambah.dart';
 
 class Pengguna extends StatefulWidget {
   const Pengguna({super.key});
@@ -40,7 +41,14 @@ class _PenggunaState extends State<Pengguna> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Tambah(),
+                ),
+              );
+            },
             icon: Icon(
               Icons.person_add,
               color: Colors.black,
