@@ -15,7 +15,7 @@ class _TeacherState extends State<Teacher> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Teacher"),
+        title: Text("Petugas"),
         actions: [
           IconButton(
             onPressed: () {

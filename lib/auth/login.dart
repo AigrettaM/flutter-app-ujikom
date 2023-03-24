@@ -2,9 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../admin.dart';
+import '';
+import '../admin/admin.dart';
 import '../student.dart';
-import '../teacher.dart';
+import '../petugas.dart';
 import 'register.dart';
 
 class LoginPage extends StatefulWidget {
