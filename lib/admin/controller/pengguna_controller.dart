@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:rolebased/admin/models/pengguna_models.dart';
-import 'package:rolebased/admin/pengguna.dart';
+import 'package:rolebased/admin/siswa_data.dart';
 
 final CollectionReference _pengguna =
-    FirebaseFirestore.instance.collection('users');
+    FirebaseFirestore.instance.collection('siswa');
 
 class pengguna_controller {
   // add data to firebase

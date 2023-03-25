@@ -15,7 +15,16 @@ class _StudentState extends State<Student> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Student"),
+        title: const Text(
+          "Student",
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: 28,
+              fontFamily: 'Raleway_Semibold'),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        toolbarHeight: 80.0,
         actions: [
           IconButton(
             onPressed: () {

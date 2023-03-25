@@ -15,7 +15,7 @@ class MyTextField extends StatelessWidget {
       controller: mycontroller,
       validator: (value) {
         if (value!.isEmpty) {
-          return 'the $labeltext is required';
+          return "Field cannot be empty";
         }
       },
       decoration: InputDecoration(

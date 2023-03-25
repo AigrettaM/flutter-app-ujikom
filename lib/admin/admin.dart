@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:rolebased/admin/pengguna.dart';
+import 'package:rolebased/admin/siswa_data.dart';
 
 import '../auth/login.dart';
 import '../drawer/header_drawer.dart';
@@ -17,7 +17,7 @@ class _AdminState extends State<Admin> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(
+          title: const Text(
             "Admin",
             style: TextStyle(
               color: Colors.black,
@@ -88,7 +88,7 @@ class _AdminState extends State<Admin> {
                       height: 10,
                     ),
                     Text(
-                      "Pengguna",
+                      "Siswa",
                       style: TextStyle(
                           fontFamily: 'Raleway_Semibold', fontSize: 17.0),
                     ),
@@ -114,7 +114,7 @@ class _AdminState extends State<Admin> {
                       height: 10,
                     ),
                     Text(
-                      "Siswa",
+                      "Pengguna",
                       style: TextStyle(
                           fontFamily: 'Raleway_Semibold', fontSize: 17.0),
                     ),

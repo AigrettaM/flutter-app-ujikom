@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rolebased/admin/controller/pengguna_controller.dart';
 import 'package:rolebased/admin/models/pengguna_models.dart';
-import 'package:rolebased/admin/pengguna.dart';
+import 'package:rolebased/admin/siswa_data.dart';
 import 'component/mytextfield.dart';
 
 class TambahEdit extends StatefulWidget {
@@ -21,6 +21,11 @@ class _TambahEditState extends State<TambahEdit> {
   final TextEditingController email = TextEditingController();
   final TextEditingController rool = TextEditingController();
 
+  final TextEditingController nis = TextEditingController();
+  final TextEditingController nisn = TextEditingController();
+  final TextEditingController kelas = TextEditingController();
+  final TextEditingController jurusan = TextEditingController();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -30,6 +35,10 @@ class _TambahEditState extends State<TambahEdit> {
       name.text = widget.pengguna?.name;
       email.text = widget.pengguna?.email;
       rool.text = widget.pengguna?.rool;
+      nis.text = widget.pengguna?.nis;
+      nisn.text = widget.pengguna?.nisn;
+      kelas.text = widget.pengguna?.kelas;
+      jurusan.text = widget.pengguna?.jurusan;
     } else {
       isEditingmode = false;
     }
@@ -103,6 +112,34 @@ class _TambahEditState extends State<TambahEdit> {
                       const SizedBox(
                         height: 30,
                       ),
+                      MyTextField(
+                        labeltext: "NIS (KAPITAL)",
+                        mycontroller: nis,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      MyTextField(
+                        labeltext: "NISN (KAPITAL)",
+                        mycontroller: nisn,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      MyTextField(
+                        labeltext: "KELAS (ROMAWI)",
+                        mycontroller: kelas,
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      MyTextField(
+                        labeltext: "JURUSAN (KAPITAL)",
+                        mycontroller: jurusan,
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
                       ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
@@ -113,12 +150,20 @@ class _TambahEditState extends State<TambahEdit> {
                                       id: id.text,
                                       name: name.text,
                                       email: email.text,
-                                      rool: rool.text));
+                                      rool: rool.text,
+                                      nis: nis.text,
+                                      nisn: nisn.text,
+                                      kelas: kelas.text,
+                                      jurusan: jurusan.text));
                             } else {
                               pengguna_controller().add_pengguna(pengguna_model(
                                   name: name.text,
                                   email: email.text,
-                                  rool: rool.text));
+                                  rool: rool.text,
+                                  nis: nis.text,
+                                  nisn: nisn.text,
+                                  kelas: kelas.text,
+                                  jurusan: jurusan.text));
                             }
                           }
                           Navigator.pushReplacement(
