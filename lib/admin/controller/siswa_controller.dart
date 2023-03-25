@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:rolebased/admin/models/pengguna_models.dart';
+import 'package:rolebased/admin/models/siswa_models.dart';
 import 'package:rolebased/admin/siswa/siswa_data.dart';
 
 final CollectionReference _pengguna =

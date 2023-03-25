@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:rolebased/admin/admin.dart';
-import 'package:rolebased/admin/controller/pengguna_controller.dart';
-import 'package:rolebased/admin/models/pengguna_models.dart';
+import 'package:rolebased/admin/controller/siswa_controller.dart';
+import 'package:rolebased/admin/models/siswa_models.dart';
 import 'package:rolebased/admin/siswa/tambahEdit_siswa.dart';
 
 import 'package:rolebased/main.dart';
@@ -29,19 +29,9 @@ class _PenggunaState extends State<Pengguna> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // floatingActionButton: FloatingActionButton(
-      //     onPressed: () {
-      //       Navigator.pushReplacement(
-      //         context,
-      //         MaterialPageRoute(
-      //           builder: (context) => TambahEdit(),
-      //         ),
-      //       );
-      //     },
-      //     child: Icon(Icons.person)),
       appBar: AppBar(
         title: Text(
-          "Data pengguna",
+          "Data Siswa",
           style: TextStyle(
             color: Colors.black,
             fontFamily: 'Raleway_Semibold',
@@ -112,11 +102,13 @@ class _PenggunaState extends State<Pengguna> {
                                   SlidableAction(
                                     onPressed: (context) {
                                       final pengguna = pengguna_model(
-                                        id: records.id,
-                                        name: records['nama lengkap'],
-                                        email: records['email'],
-                                        rool: records['rool'],
-                                      );
+                                          id: records.id,
+                                          name: records['nama lengkap'],
+                                          rool: records['rool'],
+                                          nis: records['nis'],
+                                          nisn: records['nisn'],
+                                          kelas: records['kelas'],
+                                          jurusan: records['jurusan']);
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
@@ -147,13 +139,13 @@ class _PenggunaState extends State<Pengguna> {
                               child: ListTile(
                                 tileColor: Colors.deepPurple[200],
                                 title: Text(
-                                  records['email'],
+                                  records['nama lengkap'],
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'Raleway_Semibold'),
                                 ),
                                 subtitle: Text(
-                                  records['rool'],
+                                  records['jurusan'],
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'Raleway_Semibold'),

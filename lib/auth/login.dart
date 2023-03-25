@@ -2,9 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '';
 import '../admin/admin.dart';
-import '../student.dart';
+import '../student/student.dart';
 import '../petugas.dart';
 import 'register.dart';
 
@@ -204,14 +203,14 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                             },
                             keyboardType: TextInputType.emailAddress,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           MaterialButton(
-                            shape: RoundedRectangleBorder(
+                            shape: const RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10.0))),
-                            height: 50,
+                            height: 50.0,
                             minWidth: width,
                             onPressed: () {
                               setState(() {
@@ -220,14 +219,14 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                               signIn(emailController.text,
                                   passwordController.text);
                             },
-                            child: Text(
+                            color: Color.fromRGBO(49, 39, 79, 1),
+                            child: const Text(
                               "Login",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
                               ),
                             ),
-                            color: Color.fromRGBO(49, 39, 79, 1),
                           ),
                         ],
                       ),
@@ -250,7 +249,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
         .get()
         .then((DocumentSnapshot documentSnapshot) {
       if (documentSnapshot.exists) {
-        if (documentSnapshot.get('rool') == "Teacher") {
+        if (documentSnapshot.get('rool') == "Petugas") {
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(

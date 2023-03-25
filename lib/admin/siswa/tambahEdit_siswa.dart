@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rolebased/admin/component/mytextfield.dart';
-import 'package:rolebased/admin/controller/pengguna_controller.dart';
-import 'package:rolebased/admin/models/pengguna_models.dart';
+import 'package:rolebased/admin/controller/siswa_controller.dart';
+import 'package:rolebased/admin/models/siswa_models.dart';
 import 'package:rolebased/admin/siswa/siswa_data.dart';
 
 class TambahEdit extends StatefulWidget {
@@ -18,9 +18,7 @@ class _TambahEditState extends State<TambahEdit> {
   bool isEditingmode = false;
   final TextEditingController id = TextEditingController();
   final TextEditingController name = TextEditingController();
-  final TextEditingController email = TextEditingController();
   final TextEditingController rool = TextEditingController();
-
   final TextEditingController nis = TextEditingController();
   final TextEditingController nisn = TextEditingController();
   final TextEditingController kelas = TextEditingController();
@@ -33,7 +31,6 @@ class _TambahEditState extends State<TambahEdit> {
       isEditingmode = true;
       id.text = widget.pengguna?.id;
       name.text = widget.pengguna?.name;
-      email.text = widget.pengguna?.email;
       rool.text = widget.pengguna?.rool;
       nis.text = widget.pengguna?.nis;
       nisn.text = widget.pengguna?.nisn;
@@ -93,48 +90,47 @@ class _TambahEditState extends State<TambahEdit> {
                     children: [
                       MyTextField(
                         labeltext: "Nama Lengkap",
+                        hintedtext: "Kata depan kapital",
                         mycontroller: name,
                       ),
                       const SizedBox(
                         height: 20,
                       ),
                       MyTextField(
-                        labeltext: "Email Anda",
-                        mycontroller: email,
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      MyTextField(
                         labeltext: "Rool",
+                        hintedtext: "Student",
                         mycontroller: rool,
                       ),
                       const SizedBox(
                         height: 30,
                       ),
                       MyTextField(
-                        labeltext: "NIS (KAPITAL)",
+                        labeltext: "NIS",
+                        hintedtext: "(KAPITAL)",
                         mycontroller: nis,
                       ),
                       const SizedBox(
                         height: 20,
                       ),
                       MyTextField(
-                        labeltext: "NISN (KAPITAL)",
+                        labeltext: "NISN",
+                        hintedtext: "(KAPITAL)",
                         mycontroller: nisn,
                       ),
                       const SizedBox(
                         height: 20,
                       ),
                       MyTextField(
-                        labeltext: "KELAS (ROMAWI)",
+                        labeltext: "KELAS",
+                        hintedtext: "(ROMAWI)",
                         mycontroller: kelas,
                       ),
                       const SizedBox(
                         height: 30,
                       ),
                       MyTextField(
-                        labeltext: "JURUSAN (KAPITAL)",
+                        labeltext: "JURUSAN",
+                        hintedtext: "(KAPITAL)",
                         mycontroller: jurusan,
                       ),
                       const SizedBox(
@@ -149,7 +145,6 @@ class _TambahEditState extends State<TambahEdit> {
                                   pengguna_model(
                                       id: id.text,
                                       name: name.text,
-                                      email: email.text,
                                       rool: rool.text,
                                       nis: nis.text,
                                       nisn: nisn.text,
@@ -158,7 +153,6 @@ class _TambahEditState extends State<TambahEdit> {
                             } else {
                               pengguna_controller().add_pengguna(pengguna_model(
                                   name: name.text,
-                                  email: email.text,
                                   rool: rool.text,
                                   nis: nis.text,
                                   nisn: nisn.text,

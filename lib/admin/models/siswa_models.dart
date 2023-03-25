@@ -1,9 +1,8 @@
 class pengguna_model {
-  final id, name, nis, nisn, kelas, jurusan, email, rool;
+  final id, name, nis, nisn, kelas, jurusan, rool;
   pengguna_model(
       {this.id,
       this.name,
-      this.email,
       this.rool,
       this.nis,
       this.nisn,
@@ -14,7 +13,6 @@ class pengguna_model {
   Map<String, dynamic> add_data() {
     return {
       'nama lengkap': name,
-      'email': email,
       'rool': rool,
       'nis': nis,
       'nisn': nisn,

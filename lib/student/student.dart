@@ -1,30 +1,29 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:rolebased/admin/pengguna/pengguna.dart';
-import 'package:rolebased/admin/siswa/siswa_data.dart';
+import 'package:rolebased/drawer/header_drawer.dart';
+import 'package:rolebased/student/history.dart';
+import 'package:rolebased/student/transaksi.dart';
 
 import '../auth/login.dart';
-import '../drawer/header_drawer.dart';
 
-class Admin extends StatefulWidget {
-  const Admin({super.key});
+class Student extends StatefulWidget {
+  const Student({super.key});
 
   @override
-  State<Admin> createState() => _AdminState();
+  State<Student> createState() => _StudentState();
 }
 
-class _AdminState extends State<Admin> {
+class _StudentState extends State<Student> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
           title: const Text(
-            "Admin",
+            "Student",
             style: TextStyle(
-              color: Colors.black,
-              fontFamily: 'Raleway_Semibold',
-              fontSize: 28,
-            ),
+                color: Colors.black,
+                fontSize: 28,
+                fontFamily: 'Raleway_Semibold'),
           ),
           backgroundColor: Colors.transparent,
           elevation: 0.0,
@@ -43,7 +42,31 @@ class _AdminState extends State<Admin> {
                       color: Colors.black, fontFamily: 'Raleway_Semibold'),
                 ),
                 splashColor: Colors.deepPurple[700],
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Student(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.history, color: Colors.black),
+                title: Text(
+                  "history",
+                  style: TextStyle(
+                      color: Colors.black, fontFamily: 'Raleway_Semibold'),
+                ),
+                splashColor: Colors.deepPurple[700],
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => history(),
+                    ),
+                  );
+                },
               ),
               ListTile(
                 leading: const Icon(Icons.logout, color: Colors.black),
@@ -72,7 +95,7 @@ class _AdminState extends State<Admin> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Pengguna(),
+                    builder: (context) => Transaksi(),
                   ),
                 );
               },
@@ -83,65 +106,6 @@ class _AdminState extends State<Admin> {
                   children: const <Widget>[
                     Icon(
                       Icons.person,
-                      size: 70,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Siswa",
-                      style: TextStyle(
-                          fontFamily: 'Raleway_Semibold', fontSize: 17.0),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Card(
-            margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
-            child: InkWell(
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PenggunaS(),
-                  ),
-                );
-              },
-              splashColor: Colors.deepPurple[300],
-              child: Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const <Widget>[
-                    Icon(
-                      Icons.person,
-                      size: 70,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Pengguna",
-                      style: TextStyle(
-                          fontFamily: 'Raleway_Semibold', fontSize: 17.0),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Card(
-            margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
-            child: InkWell(
-              onTap: () {},
-              splashColor: Colors.deepPurple[300],
-              child: Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const <Widget>[
-                    Icon(
-                      Icons.wallet_rounded,
                       size: 70,
                     ),
                     SizedBox(
@@ -160,21 +124,28 @@ class _AdminState extends State<Admin> {
           Card(
             margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => history(),
+                  ),
+                );
+              },
               splashColor: Colors.deepPurple[300],
               child: Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: const <Widget>[
                     Icon(
-                      Icons.data_array,
+                      Icons.person,
                       size: 70,
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      "Data",
+                      "history",
                       style: TextStyle(
                           fontFamily: 'Raleway_Semibold', fontSize: 17.0),
                     ),

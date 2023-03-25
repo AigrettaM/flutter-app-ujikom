@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class MyTextField extends StatelessWidget {
-  final labeltext;
+  final labeltext, hintedtext;
   final TextEditingController mycontroller;
 
   MyTextField({
     required this.labeltext,
     required this.mycontroller,
+    required this.hintedtext,
   });
 
   @override
@@ -20,12 +21,19 @@ class MyTextField extends StatelessWidget {
       },
       decoration: InputDecoration(
         labelText: labeltext,
+        hintText: hintedtext,
+        contentPadding:
+            const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
         labelStyle: const TextStyle(
             color: Colors.black, fontFamily: 'Raleway_Semibold'),
         fillColor: Colors.white,
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.deepPurple),
           borderRadius: BorderRadius.circular(20),
+        ),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: new BorderSide(color: Colors.deepPurple),
+          borderRadius: new BorderRadius.circular(20),
         ),
         errorBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.redAccent),
