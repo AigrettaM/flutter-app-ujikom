@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:rolebased/admin/component/mytextfield.dart';
 import 'package:rolebased/admin/controller/pengguna_controller.dart';
 import 'package:rolebased/admin/models/pengguna_models.dart';
-import 'package:rolebased/admin/siswa_data.dart';
-import 'component/mytextfield.dart';
+import 'package:rolebased/admin/siswa/siswa_data.dart';
 
 class TambahEdit extends StatefulWidget {
   final pengguna_model? pengguna;

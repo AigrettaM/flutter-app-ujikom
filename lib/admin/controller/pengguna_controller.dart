@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:rolebased/admin/models/pengguna_models.dart';
-import 'package:rolebased/admin/siswa_data.dart';
+import 'package:rolebased/admin/siswa/siswa_data.dart';
 
 final CollectionReference _pengguna =
     FirebaseFirestore.instance.collection('siswa');

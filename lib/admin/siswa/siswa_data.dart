@@ -6,8 +6,8 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:rolebased/admin/admin.dart';
 import 'package:rolebased/admin/controller/pengguna_controller.dart';
 import 'package:rolebased/admin/models/pengguna_models.dart';
-import 'package:rolebased/admin/tambahEdit_siswa.dart';
-import 'package:rolebased/auth/register.dart';
+import 'package:rolebased/admin/siswa/tambahEdit_siswa.dart';
+
 import 'package:rolebased/main.dart';
 
 void main() async {
