@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:rolebased/student/student.dart';
 
 class history extends StatefulWidget {
@@ -15,7 +13,7 @@ class _historyState extends State<history> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "History",
           style: TextStyle(
             color: Colors.black,
@@ -33,7 +31,7 @@ class _historyState extends State<history> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => Student(),
+                builder: (context) => const Student(),
               ),
             );
           },

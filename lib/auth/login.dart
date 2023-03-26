@@ -5,7 +5,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../admin/admin.dart';
 import '../student/student.dart';
 import '../petugas.dart';
-import 'register.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -57,7 +56,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                       height: 400,
                       width: width,
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage('Assets/Images/image 5.png'),
                             fit: BoxFit.fill,
@@ -70,7 +69,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                       top: -20,
                       width: width + 20,
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage('Assets/Images/Group 13.png'),
                             fit: BoxFit.fill,
@@ -83,13 +82,13 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
                         "Login",
                         style: TextStyle(
@@ -108,15 +107,15 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.white,
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           color: Color.fromRGBO(196, 135, 198, 1),
                           blurRadius: 20,
@@ -219,7 +218,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                               signIn(emailController.text,
                                   passwordController.text);
                             },
-                            color: Color.fromRGBO(49, 39, 79, 1),
+                            color: const Color.fromRGBO(49, 39, 79, 1),
                             child: const Text(
                               "Login",
                               style: TextStyle(
@@ -253,17 +252,17 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => Teacher(),
+                builder: (context) => const Teacher(),
               ));
         } else if (documentSnapshot.get('rool') == "Student") {
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => Student(),
+                builder: (context) => const Student(),
               ));
         } else {
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => Admin()));
+              context, MaterialPageRoute(builder: (context) => const Admin()));
         }
       } else {
         print('Document does not exist on the database');

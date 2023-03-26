@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:rolebased/student/student.dart';
 
 class TransaksiS extends StatefulWidget {
@@ -15,7 +14,7 @@ class _TransaksiSState extends State<TransaksiS> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Transaksi",
           style: TextStyle(
             color: Colors.black,
@@ -33,7 +32,7 @@ class _TransaksiSState extends State<TransaksiS> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => Student(),
+                builder: (context) => const Student(),
               ),
             );
           },

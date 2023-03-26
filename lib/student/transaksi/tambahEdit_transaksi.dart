@@ -73,7 +73,7 @@ class _TransaksiTambahEditState extends State<TransaksiTambahEdit> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => Transaksi(),
+                builder: (context) => const Transaksi(),
               ),
             );
           },
@@ -84,7 +84,7 @@ class _TransaksiTambahEditState extends State<TransaksiTambahEdit> {
           child: Column(
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 10),
+                padding: const EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 10),
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -172,7 +172,7 @@ class _TransaksiTambahEditState extends State<TransaksiTambahEdit> {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Transaksi(),
+                              builder: (context) => const Transaksi(),
                             ),
                           );
                         },

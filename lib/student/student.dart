@@ -28,7 +28,7 @@ class _StudentState extends State<Student> {
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           toolbarHeight: 80.0,
-          iconTheme: IconThemeData(color: Colors.black)),
+          iconTheme: const IconThemeData(color: Colors.black)),
       drawer: Drawer(
         child: SingleChildScrollView(
           child: Column(
@@ -36,7 +36,7 @@ class _StudentState extends State<Student> {
               const MyHeaderDrawer(),
               ListTile(
                 leading: const Icon(Icons.home, color: Colors.black),
-                title: Text(
+                title: const Text(
                   "Beranda",
                   style: TextStyle(
                       color: Colors.black, fontFamily: 'Raleway_Semibold'),
@@ -46,14 +46,14 @@ class _StudentState extends State<Student> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Student(),
+                      builder: (context) => const Student(),
                     ),
                   );
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.history, color: Colors.black),
-                title: Text(
+                title: const Text(
                   "history",
                   style: TextStyle(
                       color: Colors.black, fontFamily: 'Raleway_Semibold'),
@@ -63,14 +63,14 @@ class _StudentState extends State<Student> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => history(),
+                      builder: (context) => const history(),
                     ),
                   );
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.logout, color: Colors.black),
-                title: Text(
+                title: const Text(
                   "Log out",
                   style: TextStyle(
                       color: Colors.black, fontFamily: 'Raleway_Semibold'),
@@ -85,17 +85,17 @@ class _StudentState extends State<Student> {
         ),
       ),
       body: GridView.count(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         crossAxisCount: 2,
         children: <Widget>[
           Card(
-            margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+            margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
             child: InkWell(
               onTap: () {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => TransaksiS(),
+                    builder: (context) => const TransaksiS(),
                   ),
                 );
               },
@@ -122,13 +122,13 @@ class _StudentState extends State<Student> {
             ),
           ),
           Card(
-            margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+            margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
             child: InkWell(
               onTap: () {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => history(),
+                    builder: (context) => const history(),
                   ),
                 );
               },
@@ -160,7 +160,7 @@ class _StudentState extends State<Student> {
   }
 
   Future<void> logout(BuildContext context) async {
-    CircularProgressIndicator();
+    const CircularProgressIndicator();
     await FirebaseAuth.instance.signOut();
     Navigator.pushReplacement(
       context,

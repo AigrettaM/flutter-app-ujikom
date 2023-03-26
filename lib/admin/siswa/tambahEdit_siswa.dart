@@ -72,7 +72,7 @@ class _TambahEditState extends State<TambahEdit> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => Pengguna(),
+                builder: (context) => const Pengguna(),
               ),
             );
           },
@@ -83,7 +83,7 @@ class _TambahEditState extends State<TambahEdit> {
           child: Column(
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 10),
+                padding: const EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 10),
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -169,7 +169,7 @@ class _TambahEditState extends State<TambahEdit> {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Pengguna(),
+                              builder: (context) => const Pengguna(),
                             ),
                           );
                         },

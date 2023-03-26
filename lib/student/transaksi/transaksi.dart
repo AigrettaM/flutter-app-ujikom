@@ -28,7 +28,7 @@ class _TransaksiState extends State<Transaksi> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Transaksi",
           style: TextStyle(
             color: Colors.black,
@@ -46,7 +46,7 @@ class _TransaksiState extends State<Transaksi> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => Admin(),
+                builder: (context) => const Admin(),
               ),
             );
           },
@@ -61,7 +61,7 @@ class _TransaksiState extends State<Transaksi> {
                 ),
               );
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.person_add,
               color: Colors.black,
             ),
@@ -95,7 +95,7 @@ class _TransaksiState extends State<Transaksi> {
                             padding: const EdgeInsets.symmetric(vertical: 3),
                             child: Slidable(
                               startActionPane: ActionPane(
-                                motion: StretchMotion(),
+                                motion: const StretchMotion(),
                                 children: [
                                   SlidableAction(
                                     onPressed: (context) {
@@ -121,7 +121,7 @@ class _TransaksiState extends State<Transaksi> {
                                 ],
                               ),
                               endActionPane: ActionPane(
-                                motion: StretchMotion(),
+                                motion: const StretchMotion(),
                                 children: [
                                   SlidableAction(
                                     onPressed: (context) {
@@ -137,13 +137,13 @@ class _TransaksiState extends State<Transaksi> {
                                 tileColor: Colors.deepPurple[200],
                                 title: Text(
                                   records['nama lengkap'],
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'Raleway_Semibold'),
                                 ),
                                 subtitle: Text(
                                   records['jumlah'],
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'Raleway_Semibold'),
                                 ),

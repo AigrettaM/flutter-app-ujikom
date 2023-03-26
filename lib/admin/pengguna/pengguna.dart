@@ -1,10 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:rolebased/admin/admin.dart';
+import 'package:rolebased/admin/controller/pengguna_controller.dart';
+import 'package:rolebased/admin/models/pengguna_models.dart';
 import 'package:rolebased/admin/pengguna/tambahEdit_pengguna.dart';
 
 class PenggunaS extends StatefulWidget {
@@ -21,7 +20,7 @@ class _PenggunaSState extends State<PenggunaS> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Data pengguna",
           style: TextStyle(
             color: Colors.black,
@@ -39,7 +38,7 @@ class _PenggunaSState extends State<PenggunaS> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => Admin(),
+                builder: (context) => const Admin(),
               ),
             );
           },
@@ -54,7 +53,7 @@ class _PenggunaSState extends State<PenggunaS> {
                 ),
               );
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.person_add,
               color: Colors.black,
             ),
@@ -71,7 +70,7 @@ class _PenggunaSState extends State<PenggunaS> {
                   stream: _users.snapshots(),
                   builder: (context, snapshots) {
                     if (snapshots.connectionState == ConnectionState.waiting) {
-                      return Center(
+                      return const Center(
                         child:
                             CircularProgressIndicator(color: Colors.deepPurple),
                       );
@@ -87,31 +86,51 @@ class _PenggunaSState extends State<PenggunaS> {
                               padding: const EdgeInsets.symmetric(vertical: 3),
                               child: Slidable(
                                 startActionPane: ActionPane(
-                                  motion: StretchMotion(),
+                                  motion: const StretchMotion(),
                                   children: <Widget>[
                                     SlidableAction(
-                                      onPressed: ((context) {}),
+                                      onPressed: ((context) {
+                                        final users = model_users(
+                                          id: records.id,
+                                          email: records['email'],
+                                          nisn_npsn: records['nisn/npsn'],
+                                          rool: records['rool'],
+                                        );
+                                        Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                TambahEditPengguna(
+                                              users: users,
+                                              index: index,
+                                            ),
+                                          ),
+                                        );
+                                      }),
                                       icon: Icons.edit,
                                       backgroundColor: Colors.deepPurple,
                                     ),
                                   ],
                                 ),
                                 endActionPane: ActionPane(
-                                    motion: StretchMotion(),
+                                    motion: const StretchMotion(),
                                     children: <Widget>[
                                       SlidableAction(
-                                        onPressed: ((context) {}),
+                                        onPressed: ((context) {
+                                          controller_pengguna().delete_users(
+                                              model_users(id: records.id));
+                                        }),
                                         icon: Icons.delete,
                                         backgroundColor: Colors.redAccent,
                                       ),
                                     ]),
                                 child: ListTile(
                                   title: Text(records['email'],
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white,
                                           fontFamily: 'Raleway_Semibold')),
                                   subtitle: Text(records['rool'],
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white,
                                           fontFamily: 'Raleway_Semibold')),
                                   tileColor: Colors.deepPurple[200],
@@ -120,7 +139,7 @@ class _PenggunaSState extends State<PenggunaS> {
                             );
                           });
                     }
-                    return Center(
+                    return const Center(
                         child: CircularProgressIndicator(
                             color: Colors.deepPurple));
                   },

@@ -26,7 +26,7 @@ class _TeacherState extends State<Teacher> {
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           toolbarHeight: 80.0,
-          iconTheme: IconThemeData(color: Colors.black)),
+          iconTheme: const IconThemeData(color: Colors.black)),
       drawer: Drawer(
         child: SingleChildScrollView(
           child: Column(
@@ -34,7 +34,7 @@ class _TeacherState extends State<Teacher> {
               const MyHeaderDrawer(),
               ListTile(
                 leading: const Icon(Icons.home, color: Colors.black),
-                title: Text(
+                title: const Text(
                   "Beranda",
                   style: TextStyle(
                       color: Colors.black, fontFamily: 'Raleway_Semibold'),
@@ -44,7 +44,7 @@ class _TeacherState extends State<Teacher> {
               ),
               ListTile(
                 leading: const Icon(Icons.logout, color: Colors.black),
-                title: Text(
+                title: const Text(
                   "Log out",
                   style: TextStyle(
                       color: Colors.black, fontFamily: 'Raleway_Semibold'),
@@ -62,7 +62,7 @@ class _TeacherState extends State<Teacher> {
   }
 
   Future<void> logout(BuildContext context) async {
-    CircularProgressIndicator();
+    const CircularProgressIndicator();
     await FirebaseAuth.instance.signOut();
     Navigator.pushReplacement(
       context,

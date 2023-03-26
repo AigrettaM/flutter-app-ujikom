@@ -1,12 +1,15 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:rolebased/admin/models/pengguna_models.dart';
 import 'package:rolebased/admin/pengguna/pengguna.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 
 class TambahEditPengguna extends StatefulWidget {
-  const TambahEditPengguna({super.key});
+  final model_users? users;
+  final index;
+  TambahEditPengguna({this.users, this.index});
 
   @override
   State<TambahEditPengguna> createState() => _TambahEditPenggunaState();
@@ -18,11 +21,16 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
 
   final _formkey = GlobalKey<FormState>();
   final _auth = FirebaseAuth.instance;
+  bool isEditingmode = false;
+  bool login = false;
 
   final TextEditingController passwordController = new TextEditingController();
+  final TextEditingController newPasswordController =
+      new TextEditingController();
   final TextEditingController confirmpassController =
       new TextEditingController();
   final TextEditingController name = new TextEditingController();
+  final TextEditingController id = new TextEditingController();
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController mobile = new TextEditingController();
   final TextEditingController nisn_npsnController = new TextEditingController();
@@ -33,17 +41,39 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
     'Student',
     'Teacher',
   ];
+  var displayName = TextEditingController();
   var _currentItemSelected = "Student";
   var rools = "Student";
 
   @override
+  void initState() {
+    if (widget.index != null) {
+      id.text = widget.users?.id;
+      emailController.text = widget.users?.email;
+      rools = widget.users?.rool;
+      nisn_npsnController.text = widget.users?.nisn_npsn;
+    }
+  }
+  // void initState() {
+  //   FirebaseAuth.instance.authStateChanges().listen((User? user) {
+  //     if (user != null) {
+  //       if (mounted) {
+  //         setState(() {
+  //           login = true;
+  //         });
+  //       }
+  //     }
+  //   });
+  //   super.initState();
+  // }
+
   final CollectionReference _users =
       FirebaseFirestore.instance.collection("users");
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Tambah Pengguna",
           style: TextStyle(
             color: Colors.black,
@@ -75,7 +105,7 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
               height: MediaQuery.of(context).size.height,
               child: SingleChildScrollView(
                 child: Container(
-                  margin: EdgeInsets.all(12),
+                  margin: const EdgeInsets.all(12),
                   child: Form(
                     key: _formkey,
                     child: Column(
@@ -126,7 +156,7 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
                           onChanged: (value) {},
                           keyboardType: TextInputType.emailAddress,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         TextFormField(
@@ -172,7 +202,7 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
                           onChanged: (value) {},
                           keyboardType: TextInputType.number,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         TextFormField(
@@ -227,7 +257,7 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
                           },
                           onChanged: (value) {},
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         TextFormField(
@@ -279,7 +309,7 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
                           },
                           onChanged: (value) {},
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Padding(
@@ -287,7 +317,7 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text(
                                 "Rool  >>  ",
                                 style: TextStyle(
                                   fontSize: 20,
@@ -306,7 +336,7 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
                                     value: dropDownStringItem,
                                     child: Text(
                                       dropDownStringItem,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Colors.black,
                                         fontFamily: 'Raleway_Semibold',
                                         fontSize: 20,
@@ -325,11 +355,11 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         MaterialButton(
-                          shape: RoundedRectangleBorder(
+                          shape: const RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10.0))),
                           elevation: 5.0,
@@ -345,8 +375,8 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
                                 nisn_npsnController.text,
                                 rools);
                           },
-                          color: Color.fromRGBO(49, 39, 79, 1),
-                          child: Text(
+                          color: const Color.fromRGBO(49, 39, 79, 1),
+                          child: const Text(
                             "Tambah",
                             style: TextStyle(
                               fontSize: 20,
@@ -369,7 +399,7 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
 
   void signUp(
       String email, String password, String rool, String npsn_nisn) async {
-    CircularProgressIndicator();
+    const CircularProgressIndicator();
     if (_formkey.currentState!.validate()) {
       await _auth
           .createUserWithEmailAndPassword(email: email, password: password)
