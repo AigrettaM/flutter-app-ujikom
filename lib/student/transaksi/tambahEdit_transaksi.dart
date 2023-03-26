@@ -1,41 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:rolebased/admin/component/mytextfield.dart';
-import 'package:rolebased/admin/controller/siswa_controller.dart';
-import 'package:rolebased/admin/models/siswa_models.dart';
-import 'package:rolebased/admin/siswa/siswa_data.dart';
+import 'package:rolebased/student/transaksi/transaksi.dart';
+import 'package:intl/intl.dart';
 
-class TambahEdit extends StatefulWidget {
-  final pengguna_model? pengguna;
+import '../../admin/controller/transaksi_controller.dart';
+import '../../admin/models/transaksi_models.dart';
+
+class TransaksiTambahEdit extends StatefulWidget {
+  final transaksi_model? transaksi;
   final index;
-  TambahEdit({this.index, this.pengguna});
+  TransaksiTambahEdit({this.index, this.transaksi});
 
   @override
-  State<TambahEdit> createState() => _TambahEditState();
+  State<TransaksiTambahEdit> createState() => _TransaksiTambahEditState();
 }
 
-class _TambahEditState extends State<TambahEdit> {
+class _TransaksiTambahEditState extends State<TransaksiTambahEdit> {
   final _formKey = GlobalKey<FormState>();
+
   bool isEditingmode = false;
+
   final TextEditingController id = TextEditingController();
   final TextEditingController name = TextEditingController();
-  final TextEditingController rool = TextEditingController();
-  final TextEditingController nis = TextEditingController();
-  final TextEditingController nisn = TextEditingController();
-  final TextEditingController kelas = TextEditingController();
-  final TextEditingController jurusan = TextEditingController();
+  final TextEditingController jumlah = TextEditingController();
+  final TextEditingController date = TextEditingController();
 
   @override
   void initState() {
     // TODO: implement initState
     if (widget.index != null) {
       isEditingmode = true;
-      id.text = widget.pengguna?.id;
-      name.text = widget.pengguna?.name;
-      rool.text = widget.pengguna?.rool;
-      nis.text = widget.pengguna?.nis;
-      nisn.text = widget.pengguna?.nisn;
-      kelas.text = widget.pengguna?.kelas;
-      jurusan.text = widget.pengguna?.jurusan;
+      id.text = widget.transaksi?.id;
+      name.text = widget.transaksi?.name;
+      jumlah.text = widget.transaksi?.jumlah;
+      date.text = widget.transaksi?.date;
     } else {
       isEditingmode = false;
     }
@@ -43,6 +41,9 @@ class _TambahEditState extends State<TambahEdit> {
   }
 
   Widget build(BuildContext context) {
+    DateTime _initialDate = DateTime.now();
+    date.text = DateFormat('yyyy-MM-dd').format(_initialDate);
+
     return Scaffold(
       appBar: AppBar(
         title: isEditingmode == true
@@ -72,7 +73,7 @@ class _TambahEditState extends State<TambahEdit> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => Pengguna(),
+                builder: (context) => Transaksi(),
               ),
             );
           },
@@ -98,78 +99,80 @@ class _TambahEditState extends State<TambahEdit> {
                         height: 20,
                       ),
                       MyTextField(
-                        labeltext: "Rool",
-                        hintedtext: "Student",
-                        mycontroller: rool,
-                        keyboardType: TextInputType.text,
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      MyTextField(
-                        labeltext: "NIS",
-                        hintedtext: "(KAPITAL)",
-                        mycontroller: nis,
+                        labeltext: "Jumlah",
+                        hintedtext: "Jumlah..",
+                        mycontroller: jumlah,
                         keyboardType: TextInputType.number,
                       ),
                       const SizedBox(
-                        height: 20,
-                      ),
-                      MyTextField(
-                        labeltext: "NISN",
-                        hintedtext: "(KAPITAL)",
-                        mycontroller: nisn,
-                        keyboardType: TextInputType.number,
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      MyTextField(
-                        labeltext: "KELAS",
-                        hintedtext: "(ROMAWI)",
-                        mycontroller: kelas,
-                        keyboardType: TextInputType.text,
-                      ),
-                      const SizedBox(
                         height: 30,
                       ),
-                      MyTextField(
-                        labeltext: "JURUSAN",
-                        hintedtext: "(KAPITAL)",
-                        mycontroller: jurusan,
-                        keyboardType: TextInputType.text,
+                      TextFormField(
+                        controller: date,
+                        decoration: InputDecoration(
+                          labelText: 'Date',
+                          contentPadding: const EdgeInsets.only(
+                              left: 14.0, bottom: 8.0, top: 8.0),
+                          labelStyle: const TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'Raleway_Semibold'),
+                          fillColor: Colors.white,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(color: Colors.deepPurple),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide:
+                                new BorderSide(color: Colors.deepPurple),
+                            borderRadius: new BorderRadius.circular(20),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(color: Colors.redAccent),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        onTap: () async {
+                          DateTime? selectedDate = await showDatePicker(
+                              context: context,
+                              firstDate: DateTime(1900),
+                              initialDate: _initialDate,
+                              lastDate: DateTime(2100));
+                          if (selectedDate != null) {
+                            date.text =
+                                DateFormat('yyyy-MM-dd').format(selectedDate);
+                          }
+                        },
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 20,
                       ),
                       ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             _formKey.currentState!.save();
                             if (isEditingmode == true) {
-                              pengguna_controller().update_pengguna(
-                                  pengguna_model(
-                                      id: id.text,
-                                      name: name.text,
-                                      rool: rool.text,
-                                      nis: nis.text,
-                                      nisn: nisn.text,
-                                      kelas: kelas.text,
-                                      jurusan: jurusan.text));
+                              transaksi_controller()
+                                  .update_transaksi(transaksi_model(
+                                id: id.text,
+                                name: name.text,
+                                jumlah: jumlah.text,
+                                date: date.text,
+                              ));
                             } else {
-                              pengguna_controller().add_pengguna(pengguna_model(
-                                  name: name.text,
-                                  rool: rool.text,
-                                  nis: nis.text,
-                                  nisn: nisn.text,
-                                  kelas: kelas.text,
-                                  jurusan: jurusan.text));
+                              transaksi_controller()
+                                  .add_transaksi(transaksi_model(
+                                name: name.text,
+                                jumlah: jumlah.text,
+                                date: date.text,
+                              ));
                             }
                           }
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Pengguna(),
+                              builder: (context) => Transaksi(),
                             ),
                           );
                         },

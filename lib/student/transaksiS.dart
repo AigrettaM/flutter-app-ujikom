@@ -3,14 +3,14 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:rolebased/student/student.dart';
 
-class Transaksi extends StatefulWidget {
-  const Transaksi({super.key});
+class TransaksiS extends StatefulWidget {
+  const TransaksiS({super.key});
 
   @override
-  State<Transaksi> createState() => _TransaksiState();
+  State<TransaksiS> createState() => _TransaksiSState();
 }
 
-class _TransaksiState extends State<Transaksi> {
+class _TransaksiSState extends State<TransaksiS> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

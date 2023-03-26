@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rolebased/admin/pengguna/pengguna.dart';
 import 'package:rolebased/admin/siswa/siswa_data.dart';
+import 'package:rolebased/student/transaksi/transaksi.dart';
 
 import '../auth/login.dart';
 import '../drawer/header_drawer.dart';
@@ -29,7 +30,7 @@ class _AdminState extends State<Admin> {
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           toolbarHeight: 80.0,
-          iconTheme: IconThemeData(color: Colors.black)),
+          iconTheme: const IconThemeData(color: Colors.black)),
       drawer: Drawer(
         child: SingleChildScrollView(
           child: Column(
@@ -37,7 +38,7 @@ class _AdminState extends State<Admin> {
               const MyHeaderDrawer(),
               ListTile(
                 leading: const Icon(Icons.home, color: Colors.black),
-                title: Text(
+                title: const Text(
                   "Beranda",
                   style: TextStyle(
                       color: Colors.black, fontFamily: 'Raleway_Semibold'),
@@ -47,7 +48,7 @@ class _AdminState extends State<Admin> {
               ),
               ListTile(
                 leading: const Icon(Icons.logout, color: Colors.black),
-                title: Text(
+                title: const Text(
                   "Log out",
                   style: TextStyle(
                       color: Colors.black, fontFamily: 'Raleway_Semibold'),
@@ -62,17 +63,17 @@ class _AdminState extends State<Admin> {
         ),
       ),
       body: GridView.count(
-        padding: EdgeInsets.all(10),
-        crossAxisCount: 2,
+        padding: const EdgeInsets.all(10),
+        crossAxisCount: 3,
         children: <Widget>[
           Card(
-            margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+            margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
             child: InkWell(
               onTap: () {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Pengguna(),
+                    builder: (context) => const Pengguna(),
                   ),
                 );
               },
@@ -83,7 +84,7 @@ class _AdminState extends State<Admin> {
                   children: const <Widget>[
                     Icon(
                       Icons.person,
-                      size: 70,
+                      size: 40,
                     ),
                     SizedBox(
                       height: 10,
@@ -91,7 +92,7 @@ class _AdminState extends State<Admin> {
                     Text(
                       "Siswa",
                       style: TextStyle(
-                          fontFamily: 'Raleway_Semibold', fontSize: 17.0),
+                          fontFamily: 'Raleway_Semibold', fontSize: 14.0),
                     ),
                   ],
                 ),
@@ -99,13 +100,13 @@ class _AdminState extends State<Admin> {
             ),
           ),
           Card(
-            margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+            margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
             child: InkWell(
               onTap: () {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => PenggunaS(),
+                    builder: (context) => const PenggunaS(),
                   ),
                 );
               },
@@ -116,7 +117,7 @@ class _AdminState extends State<Admin> {
                   children: const <Widget>[
                     Icon(
                       Icons.person,
-                      size: 70,
+                      size: 40,
                     ),
                     SizedBox(
                       height: 10,
@@ -124,7 +125,7 @@ class _AdminState extends State<Admin> {
                     Text(
                       "Pengguna",
                       style: TextStyle(
-                          fontFamily: 'Raleway_Semibold', fontSize: 17.0),
+                          fontFamily: 'Raleway_Semibold', fontSize: 14.0),
                     ),
                   ],
                 ),
@@ -132,9 +133,16 @@ class _AdminState extends State<Admin> {
             ),
           ),
           Card(
-            margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+            margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Transaksi(),
+                  ),
+                );
+              },
               splashColor: Colors.deepPurple[300],
               child: Center(
                 child: Column(
@@ -142,7 +150,7 @@ class _AdminState extends State<Admin> {
                   children: const <Widget>[
                     Icon(
                       Icons.wallet_rounded,
-                      size: 70,
+                      size: 40,
                     ),
                     SizedBox(
                       height: 10,
@@ -150,46 +158,46 @@ class _AdminState extends State<Admin> {
                     Text(
                       "Transaksi",
                       style: TextStyle(
-                          fontFamily: 'Raleway_Semibold', fontSize: 17.0),
+                          fontFamily: 'Raleway_Semibold', fontSize: 14.0),
                     ),
                   ],
                 ),
               ),
             ),
           ),
-          Card(
-            margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
-            child: InkWell(
-              onTap: () {},
-              splashColor: Colors.deepPurple[300],
-              child: Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const <Widget>[
-                    Icon(
-                      Icons.data_array,
-                      size: 70,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Data",
-                      style: TextStyle(
-                          fontFamily: 'Raleway_Semibold', fontSize: 17.0),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          // Card(
+          //   margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+          //   child: InkWell(
+          //     onTap: () {},
+          //     splashColor: Colors.deepPurple[300],
+          //     child: Center(
+          //       child: Column(
+          //         mainAxisSize: MainAxisSize.min,
+          //         children: const <Widget>[
+          //           Icon(
+          //             Icons.data_array,
+          //             size: 70,
+          //           ),
+          //           SizedBox(
+          //             height: 10,
+          //           ),
+          //           Text(
+          //             "Data",
+          //             style: TextStyle(
+          //                 fontFamily: 'Raleway_Semibold', fontSize: 17.0),
+          //           ),
+          //         ],
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );
   }
 
   Future<void> logout(BuildContext context) async {
-    CircularProgressIndicator();
+    const CircularProgressIndicator();
     await FirebaseAuth.instance.signOut();
     Navigator.pushReplacement(
       context,

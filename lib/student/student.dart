@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rolebased/drawer/header_drawer.dart';
 import 'package:rolebased/student/history.dart';
-import 'package:rolebased/student/transaksi.dart';
+import 'package:rolebased/student/transaksiS.dart';
 
 import '../auth/login.dart';
 
@@ -95,7 +95,7 @@ class _StudentState extends State<Student> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Transaksi(),
+                    builder: (context) => TransaksiS(),
                   ),
                 );
               },

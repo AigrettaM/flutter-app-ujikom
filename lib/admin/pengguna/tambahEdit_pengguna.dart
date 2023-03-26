@@ -37,8 +37,8 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
   var rools = "Student";
 
   @override
-  final CollectionReference _penggunaS =
-      FirebaseFirestore.instance.collection("siswa");
+  final CollectionReference _users =
+      FirebaseFirestore.instance.collection("users");
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -158,17 +158,17 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
                               borderRadius: BorderRadius.circular(20),
                             ),
                           ),
-                          // validator: (value) {
-                          //   RegExp regex = new RegExp(r'^.{6,}$');
-                          //   if (value!.length == 0) {
-                          //     return "NISN/NPSN cannot be empty";
-                          //   }
-                          //   if (!regex.hasMatch(value)) {
-                          //     return ("Please enter a valid npsn");
-                          //   } else {
-                          //     return null;
-                          //   }
-                          // },
+                          validator: (value) {
+                            RegExp regex = new RegExp(r'^.{6,}$');
+                            if (value!.length == 0) {
+                              return "NISN/NPSN cannot be empty";
+                            }
+                            if (!regex.hasMatch(value)) {
+                              return ("Please enter a valid npsn");
+                            } else {
+                              return null;
+                            }
+                          },
                           onChanged: (value) {},
                           keyboardType: TextInputType.number,
                         ),
@@ -373,7 +373,8 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
     if (_formkey.currentState!.validate()) {
       await _auth
           .createUserWithEmailAndPassword(email: email, password: password)
-          .then((value) => {postDetailsToFirestore(email, rool, npsn_nisn)})
+          .then((value) =>
+              {postDetailsToFirestore(email, npsn_nisn.trim(), rool)})
           .catchError((e) {});
     }
   }
@@ -384,8 +385,8 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
     CollectionReference ref = FirebaseFirestore.instance.collection('users');
     ref.doc(user!.uid).set({
       'email': emailController.text,
+      'nisn/npsn': nisn_npsnController.text,
       'rool': rool,
-      'nisn/npsn': nisn_npsnController.text
     });
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => PenggunaS()));

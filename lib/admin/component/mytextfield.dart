@@ -8,6 +8,7 @@ class MyTextField extends StatelessWidget {
     required this.labeltext,
     required this.mycontroller,
     required this.hintedtext,
+    required TextInputType keyboardType,
   });
 
   @override
