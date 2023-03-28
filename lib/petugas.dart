@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rolebased/drawer/header_drawer.dart';
-import 'package:rolebased/student/transaksi/transaksi.dart';
-import 'package:rolebased/student/transaksi/transaksi_Petugas.dart';
+import 'package:rolebased/transaksi/transaksi.dart';
+import 'package:rolebased/transaksi/transaksi_Petugas.dart';
 
 import 'auth/login.dart';
 

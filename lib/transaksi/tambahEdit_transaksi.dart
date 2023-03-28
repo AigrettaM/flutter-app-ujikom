@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:rolebased/admin/component/mytextfield.dart';
-import 'package:rolebased/student/transaksi/transaksi.dart';
+import 'package:rolebased/transaksi/transaksi.dart';
 import 'package:intl/intl.dart';
 
-import '../../admin/controller/transaksi_controller.dart';
-import '../../admin/models/transaksi_models.dart';
+import '../admin/controller/transaksi_controller.dart';
+import '../admin/models/transaksi_models.dart';
 
 class TransaksiTambahEdit extends StatefulWidget {
   final transaksi_model? transaksi;

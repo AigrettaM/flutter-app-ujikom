@@ -55,18 +55,6 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
       nisn_npsnController.text = widget.users?.nisn_npsn;
     }
   }
-  // void initState() {
-  //   FirebaseAuth.instance.authStateChanges().listen((User? user) {
-  //     if (user != null) {
-  //       if (mounted) {
-  //         setState(() {
-  //           login = true;
-  //         });
-  //       }
-  //     }
-  //   });
-  //   super.initState();
-  // }
 
   final CollectionReference _users =
       FirebaseFirestore.instance.collection("users");

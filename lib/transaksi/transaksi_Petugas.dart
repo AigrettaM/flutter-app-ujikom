@@ -6,9 +6,9 @@ import 'package:rolebased/admin/admin.dart';
 import 'package:rolebased/admin/controller/transaksi_controller.dart';
 import 'package:rolebased/admin/models/transaksi_models.dart';
 import 'package:rolebased/petugas.dart';
-import 'package:rolebased/student/transaksi/tambahEdit_transaksi.dart';
+import 'package:rolebased/transaksi/tambahEdit_transaksi.dart';
 import 'package:rolebased/main.dart';
-import 'package:rolebased/student/transaksi/tambahEdit_transaksi_Petugas.dart';
+import 'package:rolebased/transaksi/tambahEdit_transaksi_Petugas.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

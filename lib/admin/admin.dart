@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rolebased/admin/pengguna/pengguna.dart';
 import 'package:rolebased/admin/siswa/siswa_data.dart';
-import 'package:rolebased/student/transaksi/transaksi.dart';
+import 'package:rolebased/transaksi/transaksi.dart';
 
 import '../auth/login.dart';
 import '../drawer/header_drawer.dart';

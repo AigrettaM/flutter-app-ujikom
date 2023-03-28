@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:rolebased/student/student.dart';
-import 'package:rolebased/student/transaksi/tambahEdit_transaksi.dart';
+import 'package:rolebased/transaksi/tambahEdit_transaksi.dart';
 
 import '../admin/controller/transaksi_controller.dart';
 import '../admin/models/transaksi_models.dart';

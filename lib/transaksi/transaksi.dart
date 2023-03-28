@@ -5,7 +5,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:rolebased/admin/admin.dart';
 import 'package:rolebased/admin/controller/transaksi_controller.dart';
 import 'package:rolebased/admin/models/transaksi_models.dart';
-import 'package:rolebased/student/transaksi/tambahEdit_transaksi.dart';
+import 'package:rolebased/transaksi/tambahEdit_transaksi.dart';
 import 'package:rolebased/main.dart';
 
 void main() async {
