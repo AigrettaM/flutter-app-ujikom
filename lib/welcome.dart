@@ -75,7 +75,7 @@ class _welcomeState extends State<welcome> {
                     height: 50.0,
                     minWidth: width,
                     onPressed: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => LoginPage(),
