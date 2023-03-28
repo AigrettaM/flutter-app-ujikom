@@ -22,4 +22,9 @@ class pengguna_controller {
   }
 
   //read data to firebase
+  Future readData(pengguna_model pengguna) async {
+    await _pengguna.get().then((pengguna) {
+      print((pengguna_model()));
+    });
+  }
 }
