@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rolebased/drawer/header_drawer.dart';
+import 'package:rolebased/student/transaksi/transaksi.dart';
+import 'package:rolebased/student/transaksi/transaksi_Petugas.dart';
 
 import 'auth/login.dart';
 
@@ -57,6 +59,45 @@ class _TeacherState extends State<Teacher> {
             ],
           ),
         ),
+      ),
+      body: GridView.count(
+        padding: const EdgeInsets.all(10),
+        crossAxisCount: 1,
+        children: <Widget>[
+          Card(
+            margin: const EdgeInsets.fromLTRB(10, 10, 10, 200),
+            child: InkWell(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const TransaksiP(),
+                  ),
+                );
+              },
+              splashColor: Colors.deepPurple[300],
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const <Widget>[
+                    Icon(
+                      Icons.person,
+                      size: 70,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "Siswa",
+                      style: TextStyle(
+                          fontFamily: 'Raleway_Semibold', fontSize: 14.0),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

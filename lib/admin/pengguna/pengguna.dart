@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:rolebased/admin/admin.dart';
@@ -14,6 +15,18 @@ class PenggunaS extends StatefulWidget {
 }
 
 class _PenggunaSState extends State<PenggunaS> {
+  final TextEditingController passwordController = new TextEditingController();
+  final TextEditingController confirmpassController =
+      new TextEditingController();
+
+  final TextEditingController id = new TextEditingController();
+  final TextEditingController emailController = new TextEditingController();
+  final TextEditingController rools = new TextEditingController();
+  final TextEditingController nisn_npsnController = new TextEditingController();
+
+  final _auth = FirebaseAuth.instance;
+  final _formkey = GlobalKey<FormState>();
+
   final CollectionReference _users =
       FirebaseFirestore.instance.collection('users');
   @override
@@ -90,21 +103,11 @@ class _PenggunaSState extends State<PenggunaS> {
                                   children: <Widget>[
                                     SlidableAction(
                                       onPressed: ((context) {
-                                        final users = model_users(
-                                          id: records.id,
-                                          email: records['email'],
-                                          nisn_npsn: records['nisn/npsn'],
-                                          rool: records['rool'],
-                                        );
                                         Navigator.pushReplacement(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) =>
-                                                TambahEditPengguna(
-                                              users: users,
-                                              index: index,
-                                            ),
-                                          ),
+                                              builder: (context) =>
+                                                  TambahEditPengguna()),
                                         );
                                       }),
                                       icon: Icons.edit,

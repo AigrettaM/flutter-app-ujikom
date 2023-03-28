@@ -1,20 +1,29 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:rolebased/student/student.dart';
+import 'package:rolebased/admin/admin.dart';
+import 'package:rolebased/admin/controller/transaksi_controller.dart';
+import 'package:rolebased/admin/models/transaksi_models.dart';
+import 'package:rolebased/petugas.dart';
 import 'package:rolebased/student/transaksi/tambahEdit_transaksi.dart';
+import 'package:rolebased/main.dart';
+import 'package:rolebased/student/transaksi/tambahEdit_transaksi_Petugas.dart';
 
-import '../admin/controller/transaksi_controller.dart';
-import '../admin/models/transaksi_models.dart';
-
-class history extends StatefulWidget {
-  const history({super.key});
-
-  @override
-  State<history> createState() => _historyState();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
-class _historyState extends State<history> {
+class TransaksiP extends StatefulWidget {
+  const TransaksiP({super.key});
+
+  @override
+  State<TransaksiP> createState() => _TransaksiPState();
+}
+
+class _TransaksiPState extends State<TransaksiP> {
   final CollectionReference _transaksi =
       FirebaseFirestore.instance.collection("transaksi");
   @override
@@ -22,7 +31,7 @@ class _historyState extends State<history> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "History",
+          "Transaksi",
           style: TextStyle(
             color: Colors.black,
             fontFamily: 'Raleway_Semibold',
@@ -39,11 +48,27 @@ class _historyState extends State<history> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => const Student(),
+                builder: (context) => const Teacher(),
               ),
             );
           },
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => TransaksiTambahEditP(),
+                ),
+              );
+            },
+            icon: const Icon(
+              Icons.person_add,
+              color: Colors.black,
+            ),
+          )
+        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -71,6 +96,32 @@ class _historyState extends State<history> {
                           return Padding(
                             padding: const EdgeInsets.symmetric(vertical: 3),
                             child: Slidable(
+                              startActionPane: ActionPane(
+                                motion: const StretchMotion(),
+                                children: [
+                                  SlidableAction(
+                                    onPressed: (context) {
+                                      final transaksi = transaksi_model(
+                                        id: records.id,
+                                        name: records['nama lengkap'],
+                                        jumlah: records['jumlah'],
+                                        date: records['date'],
+                                      );
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: ((context) =>
+                                                TransaksiTambahEdit(
+                                                  transaksi: transaksi,
+                                                  index: index,
+                                                ))),
+                                      );
+                                    },
+                                    icon: Icons.edit,
+                                    backgroundColor: Colors.deepPurple,
+                                  ),
+                                ],
+                              ),
                               endActionPane: ActionPane(
                                 motion: const StretchMotion(),
                                 children: [
@@ -87,7 +138,7 @@ class _historyState extends State<history> {
                               child: ListTile(
                                 tileColor: Colors.deepPurple[200],
                                 title: Text(
-                                  "Pembayaran",
+                                  records['nama lengkap'],
                                   style: const TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'Raleway_Semibold'),

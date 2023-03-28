@@ -40,6 +40,7 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
   var options = [
     'Student',
     'Teacher',
+    'Admin',
   ];
   var displayName = TextEditingController();
   var _currentItemSelected = "Student";

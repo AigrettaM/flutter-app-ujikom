@@ -64,7 +64,7 @@ class _AdminState extends State<Admin> {
       ),
       body: GridView.count(
         padding: const EdgeInsets.all(10),
-        crossAxisCount: 3,
+        crossAxisCount: 2,
         children: <Widget>[
           Card(
             margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
@@ -84,7 +84,7 @@ class _AdminState extends State<Admin> {
                   children: const <Widget>[
                     Icon(
                       Icons.person,
-                      size: 40,
+                      size: 70,
                     ),
                     SizedBox(
                       height: 10,
@@ -117,7 +117,7 @@ class _AdminState extends State<Admin> {
                   children: const <Widget>[
                     Icon(
                       Icons.person,
-                      size: 40,
+                      size: 70,
                     ),
                     SizedBox(
                       height: 10,
@@ -150,7 +150,7 @@ class _AdminState extends State<Admin> {
                   children: const <Widget>[
                     Icon(
                       Icons.wallet_rounded,
-                      size: 40,
+                      size: 70,
                     ),
                     SizedBox(
                       height: 10,
@@ -165,32 +165,6 @@ class _AdminState extends State<Admin> {
               ),
             ),
           ),
-          // Card(
-          //   margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-          //   child: InkWell(
-          //     onTap: () {},
-          //     splashColor: Colors.deepPurple[300],
-          //     child: Center(
-          //       child: Column(
-          //         mainAxisSize: MainAxisSize.min,
-          //         children: const <Widget>[
-          //           Icon(
-          //             Icons.data_array,
-          //             size: 70,
-          //           ),
-          //           SizedBox(
-          //             height: 10,
-          //           ),
-          //           Text(
-          //             "Data",
-          //             style: TextStyle(
-          //                 fontFamily: 'Raleway_Semibold', fontSize: 17.0),
-          //           ),
-          //         ],
-          //       ),
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );

@@ -25,14 +25,14 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
             height: 70.0,
           ),
           const Text(
-            "Lorem Ipsun",
+            "Haloo!",
             style: TextStyle(
                 fontFamily: 'Raleway_Semibold',
                 fontSize: 20.0,
                 color: Colors.white),
           ),
           const Text(
-            "Lorem Ipsun",
+            "Selamat Datang",
             style: TextStyle(
                 fontFamily: 'Raleway_Semibold',
                 fontSize: 16.0,
