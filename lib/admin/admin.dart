@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:rolebased/admin/SPP/spp.dart';
+import 'package:rolebased/admin/kelas/kelas.dart';
 import 'package:rolebased/admin/pengguna/pengguna.dart';
 import 'package:rolebased/admin/siswa/siswa_data.dart';
 import 'package:rolebased/transaksi/transaksi.dart';
@@ -157,6 +159,72 @@ class _AdminState extends State<Admin> {
                     ),
                     Text(
                       "Transaksi",
+                      style: TextStyle(
+                          fontFamily: 'Raleway_Semibold', fontSize: 14.0),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Card(
+            margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+            child: InkWell(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SPP(),
+                  ),
+                );
+              },
+              splashColor: Colors.deepPurple[300],
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const <Widget>[
+                    Icon(
+                      Icons.attach_money,
+                      size: 70,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "SPP",
+                      style: TextStyle(
+                          fontFamily: 'Raleway_Semibold', fontSize: 14.0),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Card(
+            margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+            child: InkWell(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Kelas(),
+                  ),
+                );
+              },
+              splashColor: Colors.deepPurple[300],
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const <Widget>[
+                    Icon(
+                      Icons.class_outlined,
+                      size: 70,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "Kelas",
                       style: TextStyle(
                           fontFamily: 'Raleway_Semibold', fontSize: 14.0),
                     ),

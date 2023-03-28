@@ -39,7 +39,7 @@ class _TambahEditPenggunaState extends State<TambahEditPengguna> {
   File? file;
   var options = [
     'Student',
-    'Teacher',
+    'Petugas',
     'Admin',
   ];
   var displayName = TextEditingController();

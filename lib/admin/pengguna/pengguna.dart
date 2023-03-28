@@ -98,23 +98,23 @@ class _PenggunaSState extends State<PenggunaS> {
                             return Padding(
                               padding: const EdgeInsets.symmetric(vertical: 3),
                               child: Slidable(
-                                startActionPane: ActionPane(
-                                  motion: const StretchMotion(),
-                                  children: <Widget>[
-                                    SlidableAction(
-                                      onPressed: ((context) {
-                                        Navigator.pushReplacement(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  TambahEditPengguna()),
-                                        );
-                                      }),
-                                      icon: Icons.edit,
-                                      backgroundColor: Colors.deepPurple,
-                                    ),
-                                  ],
-                                ),
+                                // startActionPane: ActionPane(
+                                //   motion: const StretchMotion(),
+                                //   children: <Widget>[
+                                //     SlidableAction(
+                                //       onPressed: ((context) {
+                                //         Navigator.pushReplacement(
+                                //           context,
+                                //           MaterialPageRoute(
+                                //               builder: (context) =>
+                                //                   TambahEditPengguna()),
+                                //         );
+                                //       }),
+                                //       icon: Icons.edit,
+                                //       backgroundColor: Colors.deepPurple,
+                                //     ),
+                                //   ],
+                                // ),
                                 endActionPane: ActionPane(
                                     motion: const StretchMotion(),
                                     children: <Widget>[
