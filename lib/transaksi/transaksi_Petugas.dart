@@ -26,6 +26,11 @@ class TransaksiP extends StatefulWidget {
 class _TransaksiPState extends State<TransaksiP> {
   final CollectionReference _transaksi =
       FirebaseFirestore.instance.collection("transaksi");
+  // final CollectionReference _kelas =
+  //     FirebaseFirestore.instance.collection('kelas');
+
+  // List<String> kelas_ = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,7 +116,7 @@ class _TransaksiPState extends State<TransaksiP> {
                                         context,
                                         MaterialPageRoute(
                                             builder: ((context) =>
-                                                TransaksiTambahEdit(
+                                                TransaksiTambahEditP(
                                                   transaksi: transaksi,
                                                   index: index,
                                                 ))),

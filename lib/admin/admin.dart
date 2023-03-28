@@ -24,15 +24,15 @@ class _AdminState extends State<Admin> {
           title: const Text(
             "Admin",
             style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontFamily: 'Raleway_Semibold',
               fontSize: 28,
             ),
           ),
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.deepPurple,
           elevation: 0.0,
           toolbarHeight: 80.0,
-          iconTheme: const IconThemeData(color: Colors.black)),
+          iconTheme: const IconThemeData(color: Colors.white)),
       drawer: Drawer(
         child: SingleChildScrollView(
           child: Column(
@@ -87,6 +87,7 @@ class _AdminState extends State<Admin> {
                     Icon(
                       Icons.person,
                       size: 70,
+                      color: Colors.deepPurple,
                     ),
                     SizedBox(
                       height: 10,
@@ -120,6 +121,7 @@ class _AdminState extends State<Admin> {
                     Icon(
                       Icons.person,
                       size: 70,
+                      color: Colors.deepPurple,
                     ),
                     SizedBox(
                       height: 10,
@@ -153,6 +155,7 @@ class _AdminState extends State<Admin> {
                     Icon(
                       Icons.wallet_rounded,
                       size: 70,
+                      color: Colors.deepPurple,
                     ),
                     SizedBox(
                       height: 10,
@@ -186,6 +189,7 @@ class _AdminState extends State<Admin> {
                     Icon(
                       Icons.attach_money,
                       size: 70,
+                      color: Colors.deepPurple,
                     ),
                     SizedBox(
                       height: 10,
@@ -219,6 +223,7 @@ class _AdminState extends State<Admin> {
                     Icon(
                       Icons.class_outlined,
                       size: 70,
+                      color: Colors.deepPurple,
                     ),
                     SizedBox(
                       height: 10,

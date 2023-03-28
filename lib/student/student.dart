@@ -86,43 +86,10 @@ class _StudentState extends State<Student> {
       ),
       body: GridView.count(
         padding: const EdgeInsets.all(10),
-        crossAxisCount: 2,
+        crossAxisCount: 1,
         children: <Widget>[
           Card(
-            margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-            child: InkWell(
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const TransaksiS(),
-                  ),
-                );
-              },
-              splashColor: Colors.deepPurple[300],
-              child: Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const <Widget>[
-                    Icon(
-                      Icons.person,
-                      size: 70,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Transaksi",
-                      style: TextStyle(
-                          fontFamily: 'Raleway_Semibold', fontSize: 17.0),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Card(
-            margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+            margin: const EdgeInsets.fromLTRB(10, 10, 10, 200),
             child: InkWell(
               onTap: () {
                 Navigator.pushReplacement(
@@ -145,7 +112,7 @@ class _StudentState extends State<Student> {
                       height: 10,
                     ),
                     Text(
-                      "history",
+                      "Transaksi",
                       style: TextStyle(
                           fontFamily: 'Raleway_Semibold', fontSize: 17.0),
                     ),
