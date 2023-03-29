@@ -109,7 +109,7 @@ class _AdminState extends State<Admin> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => PenggunaS(),
+                    builder: (context) => const PenggunaS(),
                   ),
                 );
               },

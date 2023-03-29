@@ -26,6 +26,14 @@ class _TransaksiTambahEditPState extends State<TransaksiTambahEditP> {
   final TextEditingController jumlah = TextEditingController();
   final TextEditingController date = TextEditingController();
 
+  // String selectedOption = 'option';
+
+  // List<String> options = [
+  //   'Option 1',
+  //   'Option 2',
+  //   'Option 3',
+  //   'Option 4',
+  // ];
   @override
   void initState() {
     // TODO: implement initState
@@ -146,6 +154,33 @@ class _TransaksiTambahEditPState extends State<TransaksiTambahEditP> {
                           }
                         },
                       ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      // Column(
+                      //   children: [
+                      //     Text('Select an option:'),
+                      //     DropdownButton<String>(
+                      //       value: selectedOption,
+                      //       onChanged: (newValue) {
+                      //         setState(() {
+                      //           selectedOption = newValue!;
+                      //         });
+                      //       },
+                      //       // onChanged: (String newValue) {
+                      //       //   setState(() {
+                      //       //     selectedOption = newValue;
+                      //       //   });
+                      //       // },
+                      //       items: options.map((String option) {
+                      //         return DropdownMenuItem<String>(
+                      //           value: option,
+                      //           child: Text(option),
+                      //         );
+                      //       }).toList(),
+                      //     ),
+                      //   ],
+                      // ),
                       const SizedBox(
                         height: 20,
                       ),
